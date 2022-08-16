@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+const bcrypt = require('bcrypt');
 import { sendErrorResponse } from "../Helpers";
 import { STATUS_CODES } from "../details.json";
 import { loginValidate } from "../Validations/login";
