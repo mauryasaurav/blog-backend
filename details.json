@@ -1,0 +1,32 @@
+{
+    "PORT": 8000,
+    "STATUS_CODES": {
+        "BAD_REQUEST": 400,
+        "INTERNAL_SERVER_ERROR": 500,
+        "NOT_FOUND": 404,
+        "UNAUTHENTICATED": 401,
+        "UNAUTHORIZED": 403
+    },
+    "DATABASE": {
+        "URL": "0.0.0.0",
+        "PORT": 27017,
+        "NAME": "motion_confluence",
+        "OPTIONS": {
+            "useNewUrlParser": true,
+            "useUnifiedTopology": true,
+            "useFindAndModify": false,
+            "useCreateIndex": true
+        }
+    },
+    "SESSION": {
+        "SECRET": "motion_confluence",
+        "AGE": 86400000
+    },
+    "CORS_ORIGINS": [
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "http://localhost:3002",
+        "https://ajantatravelers.netlify.app/",
+        "https://ajantatravelers.netlify.app"
+    ]
+}
