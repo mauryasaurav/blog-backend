@@ -50,6 +50,20 @@ export const getAllBlogController = async (req: any, res: any) => {
 }
 
 
+/**
+ * GET ALL TRAVELERS CONTROLLER`
+ */
+
+
+ export const getTravelersController = async (req: any, res: any) => {
+    const blog = new Blog();
+
+    const travelersList: any = await blog.getAllTravelers();
+    if (travelersList.error) return sendErrorResponse(res, { "success": false, "statusCode": STATUS_CODES.BAD_REQUEST, ...travelersList });
+    return res.send({ "success": true, "message": "travelersList fetched", travelersList });
+}
+
+
 
 class Blog {
     async createBlog(data: any) {
@@ -65,6 +79,11 @@ class Blog {
     async getAllBlog() {
         const allBlogList = await blogs.find({});
         return allBlogList;
+    }
+
+    async getAllTravelers() {
+        const allTravelersList = await travelers.find({});
+        return allTravelersList;
     }
 
 }
