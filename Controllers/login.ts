@@ -19,7 +19,7 @@ export const loginController = async (req: any, res: any) => {
 
 class Login {
     async authenticateUser(user: any) {
-        let data = await register.findOne({ "email": user.email });
+        let data: any = await register.findOne({ "email": user.email });
         const isValid = bcrypt.compareSync(user.password, data.password);
         return { isValid, user, "error": false };
     }
