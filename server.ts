@@ -29,6 +29,6 @@ app.use(passport.session());
 app.use(express.json());
 app.use('/api', route);
 
-app.listen(PORT, () => {
-    console.log("Server started on port -", PORT)
+app.listen((process.env.PORT || PORT), () => {
+    console.log("Server started on port -", (process.env.PORT || PORT))
 })
