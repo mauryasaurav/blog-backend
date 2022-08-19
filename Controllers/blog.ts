@@ -65,6 +65,18 @@ export const getAllBlogController = async (req: any, res: any) => {
 
 
 
+/**
+ * DELETE TRAVELER CONTROLLER`
+ */
+
+export const deleteTravelersController = async (req: any, res: any) => {
+    const blog = new Blog();
+
+    const deleteTravel: any = await blog.deleteTraveler(req.body?.id);
+    if (deleteTravel.error) return sendErrorResponse(res, { "success": false, "statusCode": STATUS_CODES.BAD_REQUEST, ...deleteTravel });
+    return res.send({ "success": true, "message": "Deleted SUCCESSFULLY" });
+}
+
 class Blog {
     async createBlog(data: any) {
         const blog: any = await blogs.create({ ...data });
@@ -73,6 +85,11 @@ class Blog {
 
     async createTravelers(data: any) {
         const traveler: any = await travelers.create({ ...data });
+        return { traveler, "error": false };
+    }
+
+    async deleteTraveler(id: string) {
+        const traveler: any = await travelers.deleteOne({ _id: id });
         return { traveler, "error": false };
     }
 
